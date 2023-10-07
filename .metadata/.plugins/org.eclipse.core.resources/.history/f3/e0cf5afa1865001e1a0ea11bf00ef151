@@ -1,0 +1,43 @@
+package com.avirtusaa;
+
+public class Account {
+
+	
+		private Double interest;
+		private Double principalBaseAmmount;
+		
+		public Account(Double amountReceived)
+		{
+			if (amountReceived !=0 || amountReceived <0) this.principalBaseAmmount = amountReceived;
+			
+		}
+		
+		
+		public Double interestSimpleSumTotal()
+		{
+			int time = 4;
+			
+			Double interestRate = 0.05;
+			
+			interest = principalBaseAmmount * time * interestRate ;
+			
+			Double totalAmountPostInterest = principalBaseAmmount + interest;
+			
+			System.out.println("This is Simple Interest for Account alonf with the total sum being returned: "+ interest + " : " + totalAmountPostInterest);
+			
+			
+			
+			return interest;
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+
+	
+}

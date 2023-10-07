@@ -1,0 +1,121 @@
+package com.avirtusaa;
+
+import org.openqa.selenium.WebElement;
+
+
+public class MMTChromeAndFireFox {
+
+
+
+public MMTChromeAndFireFox()
+	{
+		
+	}
+
+	
+public void firefoxMMTCrawler()
+	
+	{
+	
+		
+	 	MMTUtilityMethods mmtUtilityMethods1 = new MMTUtilityMethods("FireFox", 2000); 
+	
+	
+		mmtUtilityMethods1.maximizeBrowser();
+		mmtUtilityMethods1.visitPage("https://www.makemytrip.com");
+		WebElement logoMMT = mmtUtilityMethods1.elementGrabber("//a[contains(@class, 'mmtLogo')]");
+		
+		System.out.println("Found out this... "+logoMMT.isDisplayed());
+		
+		if ( logoMMT.isDisplayed() ) System.out.println("The logo is found to be present !!");
+		else
+			System.out.println("Unfortunately, there is no such logo found on the page !!");
+		
+		
+		//System.out.println(System.getProperty("user.dir"));
+		
+		
+		mmtUtilityMethods1.terminateBrowser();
+		
+	
+		
+	}
+	
+	
+	public void chromeMMtCrawler() throws InterruptedException
+	{
+
+				
+		MMTUtilityMethods mmtUtilityMethods1 = new MMTUtilityMethods("CHrome", 2000); 
+		mmtUtilityMethods1.maximizeBrowser();
+		mmtUtilityMethods1.visitPage("https://www.makemytrip.com");
+		
+		
+		
+	
+		WebElement logoMMT = mmtUtilityMethods1.elementGrabber("//a[contains(@class, 'mmtLogo')]");
+		WebElement dialogBox = mmtUtilityMethods1.elementGrabber("//span[contains(@class, '__close')]");
+		
+
+		mmtUtilityMethods1.waitForAnElement(dialogBox);
+		mmtUtilityMethods1.clickTheElement(dialogBox);
+		mmtUtilityMethods1.clickTheElement(logoMMT);
+
+		Thread.sleep(2000);
+		
+	
+		WebElement fromDepartureStart = mmtUtilityMethods1.elementGrabber("//div[contains(@class, 'inactiveWidget')][1]");
+		mmtUtilityMethods1.waitForAnElement(fromDepartureStart);
+		mmtUtilityMethods1.clickTheElement(fromDepartureStart);
+		
+		
+		WebElement fromEntry = mmtUtilityMethods1.elementGrabber("//input[@placeholder='From']");
+		mmtUtilityMethods1.waitForAnElement(fromEntry);
+		mmtUtilityMethods1.typeStringValues(fromEntry, "New York");
+		
+	
+		Thread.sleep(8000);
+	
+		
+		WebElement firstElementFromList = mmtUtilityMethods1.elementGrabber("(//ul[contains(@class, 'suggestions-list')])[1]/li[1]//p[1]");
+		System.out.println(firstElementFromList.getText());
+		Thread.sleep(4000);
+		mmtUtilityMethods1.waitForAnElementTextDiscovery(firstElementFromList, "New");
+		mmtUtilityMethods1.clickTheElement(firstElementFromList);
+	
+	    
+		Thread.sleep(2000);
+	
+		WebElement toDestinationEnd = mmtUtilityMethods1.elementGrabber("//div[contains(@class, 'inactiveWidget')][2]");
+		mmtUtilityMethods1.waitForAnElement(toDestinationEnd);
+		mmtUtilityMethods1.clickTheElement(toDestinationEnd);
+		
+		
+		WebElement toEntry = mmtUtilityMethods1.elementGrabber("//input[@placeholder='To']");
+		mmtUtilityMethods1.waitForAnElement(toEntry);
+		mmtUtilityMethods1.typeStringValues(toEntry, "Washington");
+		
+		
+		Thread.sleep(2000);
+		
+		
+		WebElement firstElementToList = mmtUtilityMethods1.elementGrabber("(//ul[contains(@class, 'suggestions-list')])[1]/li[1]//p[1]");
+		mmtUtilityMethods1.waitForAnElementTextDiscovery(firstElementToList, "Washington");
+		mmtUtilityMethods1.clickTheElement(firstElementToList);
+		
+
+		mmtUtilityMethods1.escapeFocus();
+		
+		
+		Thread.sleep(2000);
+		
+		
+		mmtUtilityMethods1.terminateBrowser();
+	
+	}
+	
+	
+	
+	
+
+}

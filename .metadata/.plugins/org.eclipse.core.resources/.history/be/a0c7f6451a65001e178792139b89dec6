@@ -1,0 +1,10 @@
+package com.avirtusaa;
+
+public class MethodInvoker {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

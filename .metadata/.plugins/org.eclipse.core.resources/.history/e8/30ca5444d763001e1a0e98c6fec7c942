@@ -1,0 +1,20 @@
+package com.avirtusaa;
+
+import org.testng.annotations.BeforeMethod;
+
+public class MainTestRunner extends MMTChromeAndFireFox{
+
+	
+	
+	@BeforeMethod
+	public void fetchLogoStatus()
+	{
+		netCrawler();
+	}
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,180 @@
+package com.avirtusaa;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class MMTChromeAndFireFox {
+
+
+
+public MMTChromeAndFireFox()
+	{
+		
+	}
+
+	
+public void netCrawler()
+	
+	{
+	
+		
+	 	MMTUtilityMethods mmtUtilityMethods1 = new MMTUtilityMethods("FireFox"); 
+	
+		//WebDriver driver = new ChromeDriver();
+		
+		
+//		System.out.println(System.getProperty("user.dir")+"/drivers/geckodriver");
+//		String path1 = System.getProperty("user.dir");
+//		System.out.println("#########");
+//		System.out.println(path1);
+//		System.setProperty("webdriver.gecko.driver", path1+"/drivers/geckodriver");
+		
+		mmtUtilityMethods1.maximizeBrowser();
+		mmtUtilityMethods1.visitPage("https://www.makemytrip.com");
+		WebElement logoMMT = mmtUtilityMethods1.elementGrabber("//a[contains(@class, 'mmtLogo')]");
+		
+		
+		
+		
+	
+		
+	//	System.out.println("#########");
+	//	System.out.println(FileSystems.getDefault().getPath("", "").toAbsolutePath().toString());
+		
+		//System.out.println(System.getProperty("webdriver.chrome.driver"));
+		
+		
+		
+		
+		//WebDriver driver = new FirefoxDriver();
+		//driver.manage().window().maximize();
+		
+		//driver.get("https://www.makemytrip.com");
+		//WebElement logoMMT = driver.findElement(By.xpath("//a[contains(@class, 'mmtLogo')]"));
+		
+		System.out.println("Found out this... "+logoMMT.isDisplayed());
+		
+		if ( logoMMT.isDisplayed() ) System.out.println("The logo is found to be present !!");
+		else
+			System.out.println("Unfortunately, there is no such logo found on the page !!");
+		
+		
+		System.out.println(System.getProperty("user.dir"));
+		
+		
+		//driver.quit();
+		mmtUtilityMethods1.terminateBrowser();
+		
+	
+		
+	}
+	
+	
+	public void chromeMMtCrawler() throws InterruptedException
+	{
+//		System.out.println(System.getProperty("user.dir")+"drivers/chromedriver_mac64/chromedriver");
+//		String path1 = System.getProperty("user.dir");
+//		
+//		System.setProperty("webdriver.chrome.driver", path1+"drivers/chromedriver-mac-x64/chromedriver");
+//		
+		WebDriver driver = new ChromeDriver();
+//		driver.manage().window().maximize();
+//		driver.get("https://www.makemytrip.com");
+		
+		
+		
+		MMTUtilityMethods mmtUtilityMethods1 = new MMTUtilityMethods("CHrome"); 
+		mmtUtilityMethods1.maximizeBrowser();
+		mmtUtilityMethods1.visitPage("https://www.makemytrip.com");
+		
+		
+		
+		//WebElement logoMMT = driver.findElement(By.xpath("//a[contains(@href, '.com/flights')]"));
+		WebElement logoMMT = mmtUtilityMethods1.elementGrabber("//a[contains(@class, 'mmtLogo')]");
+		
+		//WebElement dialogBox = driver.findElement(By.xpath("//span[contains(@class, '__close')]"));
+		WebElement dialogBox = mmtUtilityMethods1.elementGrabber("//span[contains(@class, '__close')]");
+		
+//		WebDriverWait webDriverWait1 = new WebDriverWait(driver, 5000);
+//		webDriverWait1.until(ExpectedConditions.visibilityOf(dialogBox));
+		
+		
+		mmtUtilityMethods1.clickTheElement(dialogBox);
+		//dialogBox.click();
+		mmtUtilityMethods1.clickTheElement(logoMMT);
+		//logoMMT.click();
+		
+		
+		//Select Location From where the Flight begins 
+		Thread.sleep(2000);
+		
+		//WebElement fromDepartureStart = driver.findElement(By.xpath("//div[contains(@class, 'inactiveWidget')][1]"));
+		WebElement fromDepartureStart = mmtUtilityMethods1.elementGrabber("//div[contains(@class, 'inactiveWidget')][1]");
+//		webDriverWait1.until(ExpectedConditions.visibilityOf(fromDepartureStart));
+		
+		
+		
+		
+		//fromDepartureStart.click();
+		mmtUtilityMethods1.clickTheElement(fromDepartureStart);
+		
+		
+		WebElement fromEntry = driver.findElement(By.xpath("//input[@placeholder='From']"));
+		
+//		WebDriverWait webDriverWait2 = new WebDriverWait(driver, 2000);
+//		webDriverWait2.until(ExpectedConditions.visibilityOf(fromEntry));
+		
+		fromEntry.sendKeys("New York");
+		Thread.sleep(8000);
+		WebElement firstElementFromList = driver.findElement(By.xpath("(//ul[contains(@class, 'suggestions-list')])[1]/li[1]//p[1]"));
+		
+		System.out.println(firstElementFromList.getText());
+		
+		Thread.sleep(4000);
+		//WebDriverWait webDriverWait3 = new WebDriverWait(driver, 2000);
+		//webDriverWait3.until(ExpectedConditions.textToBePresentInElement(firstElementFromList, "New"));
+		//webDriverWait3.until(ExpectedConditions.textToBePresentInElement(firstElementFromList, "list"));
+		
+	    firstElementFromList.click();
+	    
+		
+		
+		
+		//Select Location to where the Flight ends for its destination 
+		Thread.sleep(2000);
+		WebElement toDestinationEnd = driver.findElement(By.xpath("//div[contains(@class, 'inactiveWidget')][2]"));
+		//WebDriverWait webDriverWait4 = new WebDriverWait(driver, 2000);
+		//webDriverWait4.until(ExpectedConditions.visibilityOf(toDestinationEnd));
+		toDestinationEnd.click();
+		WebElement toEntry = driver.findElement(By.xpath("//input[@placeholder='To']"));
+	//	WebDriverWait webDriverWait5 = new WebDriverWait(driver, 2000);
+		//webDriverWait5.until(ExpectedConditions.visibilityOf(toEntry));
+		toEntry.sendKeys("Washington");
+		Thread.sleep(2000);
+		WebElement firstElementToList = driver.findElement(By.xpath("(//ul[contains(@class, 'suggestions-list')])[1]/li[1]//p[1]"));
+	//	WebDriverWait webDriverWait6 = new WebDriverWait(driver, 2000);
+	//	webDriverWait6.until(ExpectedConditions.textToBePresentInElement(firstElementToList, "Washington"));
+		firstElementToList.click();
+		
+		
+
+		Actions actions1 = new Actions(driver);
+		actions1.sendKeys(Keys.ESCAPE).perform();
+		
+		
+		
+		Thread.sleep(2000);
+		driver.quit();
+	}
+	
+	
+	
+	
+
+}

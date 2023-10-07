@@ -1,0 +1,44 @@
+package com.avirtusaa;
+
+
+
+public class SavingsAccount extends Account{
+
+	
+	private Double interestSavingsAccountCompound;
+	private Double principalBaseAmountSavings;
+	private int timeSavingsAccount;
+	
+	
+	
+	public SavingsAccount(Double amountReceived, int timeReceived) {
+		
+		super(amountReceived);
+		this.principalBaseAmountSavings = amountReceived;
+		this.timeSavingsAccount = timeReceived;
+		
+		
+	}
+	
+	
+	
+	
+	@Override
+	public Double interestSimple_And_Coumpound_Sum_Total()
+	{
+		float rate = 0.56f;
+		
+		interestSavingsAccountCompound =  Math.pow( (principalBaseAmountSavings * rate)/100, timeSavingsAccount); 
+		
+		Double totalSumAfterInterestCompund =  principalBaseAmountSavings + interestSavingsAccountCompound;
+		
+		System.out.println("This is Compound Interest for Account along with the total sum being returned: "+ interestSavingsAccountCompound + " : " + totalSumAfterInterestCompund);
+		
+		return interestSavingsAccountCompound;
+		
+	}
+	
+
+
+	
+}

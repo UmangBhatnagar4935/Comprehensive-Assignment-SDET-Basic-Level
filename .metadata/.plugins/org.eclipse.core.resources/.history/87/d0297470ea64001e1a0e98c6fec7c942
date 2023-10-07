@@ -1,0 +1,85 @@
+package com.avirtusaa;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+public class MMTUtilityMethods {
+	
+	
+	private WebDriver driver;
+	
+	
+	public MMTUtilityMethods(String browserType)
+	{
+		
+		//System.out.println(browserType.toLowerCase()+" : "+ browserType.toLowerCase().);
+		if(browserType.toLowerCase().equals("firefox") )
+		{
+			System.out.println(System.getProperty("user.dir")+"/drivers/geckodriver");
+			String path1 = System.getProperty("user.dir");
+			System.out.println("#########");
+			System.out.println(path1);
+			System.setProperty("webdriver.gecko.driver", path1+"/drivers/geckodriver");
+			this.driver = new FirefoxDriver();
+		}
+		
+		else if (browserType.toLowerCase().equals("chrome") )
+		{
+			System.out.println(System.getProperty("user.dir")+"/drivers/chromedriver_mac64");
+			String path1 = System.getProperty("user.dir");
+			
+			System.setProperty("webdriver.chrome.driver", path1+"/drivers/chromedriver-mac-x64/chromedriver");
+			
+			this.driver = new ChromeDriver();
+		}
+		
+	}
+	
+	public void maximizeBrowser()
+	{
+		driver.manage().window().maximize();
+		
+	}
+	
+	
+	public void visitPage(String urlReceived)
+	{
+		driver.get("https://www.makemytrip.com");
+	}
+	
+	
+	public WebElement elementGrabber(String xpathReceived)
+	{
+		WebElement webelement1 = driver.findElement(By.xpath(xpathReceived));
+		return webelement1;
+	}
+	
+	
+	public void terminateBrowser()
+	{
+		driver.quit();
+	}
+	
+	public void waitForAnElement(long time, WebElement waitForElementReceived)
+	{
+		//WebDriverWait webDriverWait1 = new WebDriverWait(driver, 5000);
+		//webDriverWait1.until(ExpectedConditions.visibilityOf(dialogBox));
+	//	webDriverWait1.until(ExpectedConditions.visibilityOf(waitForElementReceived));
+		
+	}
+	
+	
+	public void clickTheElement(WebElement elementToBeClickedReceived)
+	{
+		elementToBeClickedReceived.click();
+		
+	}
+	
+	
+	
+
+}

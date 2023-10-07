@@ -5,16 +5,16 @@
       <![CDATA[The test is found to have passed !!]]>
     </line>
   </reporter-output>
-  <suite started-at="2023-10-08T02:03:24 IST" name="Suite" finished-at="2023-10-08T02:04:08 IST" duration-ms="43398">
+  <suite started-at="2023-10-08T03:30:00 IST" name="Suite" finished-at="2023-10-08T03:30:39 IST" duration-ms="38557">
     <groups>
     </groups>
-    <test started-at="2023-10-08T02:03:24 IST" name="Test" finished-at="2023-10-08T02:04:08 IST" duration-ms="43398">
+    <test started-at="2023-10-08T03:30:00 IST" name="Test" finished-at="2023-10-08T03:30:39 IST" duration-ms="38557">
       <class name="com.avirtusaa.MainTestRunner">
-        <test-method is-config="true" signature="fetchLogoStatus()[pri:0, instance:com.avirtusaa.MainTestRunner@7ea37dbf]" started-at="2023-10-08T02:03:24 IST" name="fetchLogoStatus" finished-at="2023-10-08T02:04:08 IST" duration-ms="43373" status="PASS">
+        <test-method is-config="true" signature="fetchLogoStatus()[pri:0, instance:com.avirtusaa.MainTestRunner@7ea37dbf]" started-at="2023-10-08T03:30:00 IST" name="fetchLogoStatus" finished-at="2023-10-08T03:30:39 IST" duration-ms="38533" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fetchLogoStatus -->
-        <test-method signature="name()[pri:0, instance:com.avirtusaa.MainTestRunner@7ea37dbf]" started-at="2023-10-08T02:04:08 IST" name="name" finished-at="2023-10-08T02:04:08 IST" duration-ms="4" status="PASS">
+        <test-method signature="name()[pri:0, instance:com.avirtusaa.MainTestRunner@7ea37dbf]" started-at="2023-10-08T03:30:39 IST" name="name" finished-at="2023-10-08T03:30:39 IST" duration-ms="4" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[The test is found to have passed !!]]>
